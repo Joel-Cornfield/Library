@@ -1,0 +1,226 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-image: url("image.png");
+    padding: 20px;
+    padding-top: 20px; /* Removes extra space on top */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Library container */
+.library {
+    width: 80%;
+    max-width: 900px;
+    background: whitesmoke;
+    padding: 0 20px 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 80vh; 
+    overflow: auto;    /* Add scrolling if content overflows */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; /* Makes the header sticky */
+    top: 0; /* Sticks the header at the top */
+    background-color: white; /* Ensures background color stays solid */
+    padding: 10px 20px; /* Adds padding to the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a shadow effect */
+    z-index: 1000; /* Ensures it stays on top of other elements */
+    margin-bottom: 0; /* Ensure no margin between header and library content */
+}
+
+.header h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+#new-book-btn {
+    background: #5a67d8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#new-book-btn:hover {
+    background: #434190;
+}
+
+/* Book Cards Container */
+#library-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Book Card Styles */
+.book-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.book-card h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Book Card Buttons */
+.book-card .card-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-right: 5px;
+}
+
+.book-card .read-btn {
+    background: #5a67d8;
+    color: white;
+}
+
+.book-card .read-btn:hover {
+    background: #434190;
+}
+
+.book-card .delete-btn {
+    background: #e53e3e;
+    color: white;
+}
+
+.book-card .delete-btn:hover {
+    background: #9b2c2c;
+}
+
+/* Dialog Form Styles */
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: #555;
+}
+
+input[type="text"], 
+input[type="number"], 
+input[type="checkbox"] {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+input[type="text"]:focus, 
+input[type="number"]:focus {
+    border-color: #5a67d8;
+}
+
+/* Buttons in Form */
+form button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"] {
+    background: #5a67d8;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background: #434190;
+}
+
+#close-form {
+    background: #ccc;
+    color: #333;
+}
+
+#close-form:hover {
+    background: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .library {
+        width: 100%;
+        padding: 15px;
+    }
+
+    #new-book-btn, 
+    form button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    #library-display {
+        grid-template-columns: 1fr;
+    }
+
+    .book-card h2 {
+        font-size: 1.25rem;
+    }
+
+    .book-card p {
+        font-size: 0.9rem;
+    }
+}
